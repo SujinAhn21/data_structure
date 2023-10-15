@@ -59,6 +59,10 @@ char input()
     {
         return 'R';
     }
+    else
+    {
+        return 'X';
+    }
 }
 
 void enqueue1(Queue1* queue1)
@@ -70,14 +74,14 @@ void enqueue1(Queue1* queue1)
     if (isEmpty1(queue1)) // 큐가 비어있을 때
     {
         queue1->front1 = newNode;
-        queue1->rear1 = newNode; 
+        queue1->rear1 = newNode;
     }
     else // 큐에 이미 노드가 있는 경우
     {
         queue1->rear1->next = newNode;
         queue1->rear1 = newNode;
     }
-    queue1->count1++; 
+    queue1->count1++;
 }
 
 void enqueue2(Queue2* queue2)
@@ -89,14 +93,14 @@ void enqueue2(Queue2* queue2)
     if (isEmpty2(queue2)) // 큐가 비어있을 때
     {
         queue2->front2 = newNode;
-        queue2->rear2 = newNode; 
+        queue2->rear2 = newNode;
     }
     else // 큐에 이미 노드가 있는 경우
     {
         queue2->rear2->next = newNode;
         queue2->rear2 = newNode;
     }
-    queue2->count2++; 
+    queue2->count2++;
 }
 
 char output()
@@ -113,6 +117,10 @@ char output()
     else if (strcmp(output, "수신") == 0)
     {
         return 'R';
+    }
+    else
+    {
+        return 'X';
     }
 }
 
@@ -194,6 +202,11 @@ int main(void)
             printf("등록되었습니다. 수신 대기번호는 %d번 입니다.\n", eCount2);
             eCount2++;
         }
+        else if (inputResult == 'X')
+        {
+            printf("잘못 입력되었습니다. 다시 입력하세요.\n");
+            i--;
+        }
     }
 
     printf("================================================\n");
@@ -228,6 +241,11 @@ int main(void)
                 dCount2++;
             }
         }
+        else if (outputResult == 'X')
+        {
+            printf("잘못 입력되었습니다. 다시 입력하세요.\n");
+            i--;
+        }
     }
     printf("================================================\n");
 
@@ -252,3 +270,4 @@ int main(void)
 
     return 0;
 }
+
